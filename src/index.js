@@ -57,8 +57,8 @@ class MyGame extends Phaser.Scene {
     super();
   }
 connectToServer(room, name){
-    socket = io(`localhost:3000?room=${room}&name=${name}`);
-  }
+  socket = io(`http://among-hashers-server.herokuapp.com?room=${room}&name=${name}`);
+}
 
 getRandomInt(max) {
     return Math.floor(Math.random() * max);
