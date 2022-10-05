@@ -229,15 +229,15 @@ getRandomInt(max) {
         HUD.time.setText(`Time: 0`);
         isPaused = true;
         if(!scoreBoardContainer){
-        scoreBoardContainer = this.add.container(player.sprite.x, player.sprite.y);
+        scoreBoardContainer = this.add.container(this.cameras.main.centerX -250, this.cameras.main.centerY - 250);
         scoreBoardContainer.setDepth(900);
-        const scoreBoard = this.add.rectangle(player.sprite.x, player.sprite.y,300,500, 0x4e342e);
+        const scoreBoard = this.add.rectangle(this.cameras.main.centerX -250, this.cameras.main.centerY - 250,300,500, 0x4e342e);
         scoreBoardContainer.add(scoreBoard);
         console.log(scoreCard);
         const standingTextArray =[];
         const standings = Object.keys(scoreCard).map(playerId=>({id: playerId, score:scoreCard[playerId]})).sort((a,b)=>b.score - a.score);
         for(let i = 0; i<standings.length;i++){
-         const standing = this.add.text(player.sprite.x - 100, (player.sprite.y - 200) + i * 25, `${i+1}. ${playerNames[standings[i].id] || 'Anonymous'} Score: ${standings[i].score}`);
+         const standing = this.add.text(this.cameras.main.centerX - 350, (this.cameras.main.centerY - 450) + i * 25, `${i+1}. ${playerNames[standings[i].id] || 'Anonymous'} Score: ${standings[i].score}`);
          standingTextArray.push(standing);
         }
         scoreBoardContainer.add(standingTextArray);
