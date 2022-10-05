@@ -17,7 +17,7 @@ import {
 import { movePlayer } from './movement';
 import { animateMovement } from './animation';
 
-const player = {};
+let player = {};
 let otherPlayers = {};
 let otherPlayersId = [];
 let socket;
@@ -255,6 +255,8 @@ getRandomInt(max) {
     socket.on("disconnect", () => {
       otherPlayers = {};
       otherPlayersId = [];
+      player = {};
+      playerNames = {};
     });
     // Listen for any player hit events and make that player flash 
 
